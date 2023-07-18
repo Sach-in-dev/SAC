@@ -1,12 +1,14 @@
 import 'react-data-grid/lib/styles.css';
 import React from 'react';
 import DataGrid from 'react-data-grid';
+import  Filters  from 'react-data-grid';
+const { NumericFilter, AutoCompleteFilter } = Filters;
 
 const TableExample = () => {
   const columns = [
-    { key: 'id', name: 'ID' },
-    { key: 'name', name: 'Name' },
-    { key: 'age', name: 'Age' },
+    { key: 'id', name: 'ID' ,filterRenderer: NumericFilter },
+    { key: 'name', name: 'Name' , filterRenderer: AutoCompleteFilter },
+    { key: 'age', name: 'Age' ,filterRenderer: NumericFilter },
   ];
 
   const rows = [
@@ -18,7 +20,11 @@ const TableExample = () => {
 
   return (
     <div style={{ height: 300, width: '100%' }}>
-      <DataGrid columns={columns} rows={rows} />
+      <DataGrid 
+      columns={columns}
+       rows={rows}
+       enableFiltering
+        />
     </div>
   );
 };

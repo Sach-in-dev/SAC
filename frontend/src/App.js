@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import 'react-data-grid/lib/styles.css';
+import React from 'react';
+import DataGrid from 'react-data-grid';
 
-function App() {
+const TableExample = () => {
+  const columns = [
+    { key: 'id', name: 'ID' },
+    { key: 'name', name: 'Name' },
+    { key: 'age', name: 'Age' },
+  ];
+
+  const rows = [
+    { id: 1, name: 'John Doe', age: 25 },
+    { id: 2, name: 'Jane Smith', age: 30 },
+    { id: 3, name: 'Mike Johnson', age: 35 },
+    // Add more rows as needed
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ height: 300, width: '100%' }}>
+      <DataGrid columns={columns} rows={rows} />
     </div>
   );
-}
+};
 
-export default App;
+export default TableExample;
